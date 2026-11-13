@@ -1,0 +1,33 @@
+{
+ "name": "Phàm Nhân Tu Tiên",
+ "short_name": "Phàm Nhân Tu Tiên",
+ "description": "Game tu tiên pixel: chỉ di chuyển, công pháp tự xuất chiêu, đột phá cảnh giới, vượt Thiên Kiếp.",
+ "lang": "vi",
+ "start_url": "./",
+ "scope": "./",
+ "display": "fullscreen",
+ "orientation": "portrait",
+ "background_color": "#bfeaff",
+ "theme_color": "#bfeaff",
+ "icons": [
+  {
+   "src": "icons/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icons/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  },
+  {
+   "src": "icons/icon-512-maskable.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ],
+ "categories": [
+  "games"
+ ]
+}
