@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#bfeaff">
+<meta name="description" content="Phàm Nhân Tu Tiên: game tu tiên pixel kiểu Vampire Survivors. Chỉ di chuyển, công pháp tự kích hoạt, đột phá cảnh giới, vượt Thiên Kiếp.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Phàm Nhân Tu Tiên">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAjElEQVR4nGPgltb6P5CYYUg74P+1CjAemQ6QNPEG449HgsGY7g64+vLdfxAYdcCoA0YdMOqAUQeMbAeAMN0cALOIWExVB8CqXuTqFxdGVksTB2ATwyVOcwcIqlmBMc0dgMtR2BxAs0RIKFHS3QEDHgKDwgGkJjiqOYDSwmfoO4AbqVdEae9oaHdOqYEByysGj4exrjkAAAAASUVORK5CYII=">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAD20lEQVR4nO3bMW5UQRBFUedEhBY5AbEjtuCQzXiBbAHvgQSJFZiQxEZt3rTrTfuMdOOpUp3oS33z4dOXJ+mUbqYHkC4Z0DoqoHVUQOuogNZRAa2jAlpHBbSOCmgdFdA6KqB1VEBv6OnxYbnpWU8L6A0BPRfQGwJ6LqA3BPRcQG8I6LmA3hDQcwG9IaDnAnpDQM8F9IaAngvoDQE9F9AbAnouoINu7+6X+/3926ua3u1aAzoI6L6ADgK6L6CDgO4L6CCg+wI6COi+gA768fPXsz33A/ptAjoI6L6ADgK6L6CDgO4L6CCg+wI6COi+gA4Cui+gg4DuC+ggoPsCOgjovoAOArovoIOA7gvoIKD7AjoI6L6ADgK6L6CDgO4L6CCg+wI6COi+gA4Cui+gg4DuC+ggoPsCOgjovoAOArovoIOA7gvoIKD7AjoI6L6ADgK6L6CDgO4L6CCg+wI6COi+gA4Cui+gg4DuC+ggoPsCOgjovoAOArovoIOA7gvoIKD7AjoI6L6ADgK6L6CDgO4L6CCg+wI6COi+gA4Cui+gg4DuC+ggoPsCOgjovoAOArovoIOA7gvoIKD7AjoI6L6ADgK6L6CDgO4L6CCg+wI6COi+gA4Cui+gg4DuC+ggoPsCOgjovoAOArovoIOA7gvoIKD7AjoI6L6ADgK6L6CDgO4L6CCg+wI6COi+gA4Cui+gg14C/VxAv01ABwHdF9BBQPcFdBDQfQEdBHRfQAcB3de7AP1aTCc3fQuggQYaaKCBPrhpRE1N3wJooIF+r6Bv7+7jpsH9T5fYe/p2QAMNNNBAA31FAQ000EAD3RrQQAMdHPYS/9cyx/TtgC44LNB9AQ000K1dI6SWOaZvB3TBYYHuC2iggW6tBdLHz1+XAxromsMC3RfQQAPdGtBAAw000Po3pLcGrb8BHQR0X0AHAd0X0EFA9wV0ENB9AR0EdF9AB+18hTK927UGdBDQfQEdBHRfQAcB3RfQQUD3BXSQrxx9AR0EdF9ABwHdF9BBQPcFdBDQfQEdBHRfQAcB3RfQQUD3BXQQ0H0BHQR0X0AHAd0X0EFA9wV00EsYL9H0btca0EFA9wV0ENB9AR0EdF9ABwHdF9CL7Xyd4hXL5QJ6sWnMQK8F9GLTmIFeC+jFpjEDvRbQi01jBnotoBebxgz0WkAvNo0Z6LWAXmwaM9BrAb3YNGag1wJ6sWnMQK8F9GLTmIFeC+jFpjEDvRbQQU+PD9ua3u1aAzoI6L6ADgK6L6CDgO4L6CCg+wJaRwW0jgpoHRXQOiqgdVRA66iA1lEBraMCWkcFtI4KaB3VH2t4lWcu+49nAAAAAElFTkSuQmCC">
+<title>Phàm Nhân Tu Tiên</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=Baloo+2:wght@600;700;800&display=swap">
+<style>
+:root{
+  --ink:#4a2c14; --ink2:#8a6a48; --paper:#fff8e6; --paper2:#fdecc8; --gold:#e0a83a; --gold2:#ffd45a; --jade:#2fbf9f; --jade2:#1d8f77;
+  --hp:#ef4b5a; --xp:#3fe0a6; --red:#d42a2a; --sky:#bfeaff;
+  --font:'Baloo 2','VT323',system-ui,sans-serif; --px:'VT323',monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--sky);color:var(--ink);font-family:var(--font);user-select:none;-webkit-user-select:none;touch-action:none}
+canvas#game{position:fixed;inset:0;width:100%;height:100%;display:block;image-rendering:pixelated;touch-action:none}
+button{font-family:var(--font);cursor:pointer;color:inherit}
+[hidden]{display:none!important}
+/* ── màn hình */
+.screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:max(14px,env(safe-area-inset-top)) 12px max(14px,env(safe-area-inset-bottom));z-index:20;overflow-y:auto}
+.bg{background:linear-gradient(180deg,#8fd8ff 0%,#c6efff 45%,#fff3d6 100%)}
+.bg::before{content:'';position:fixed;inset:0;pointer-events:none;background:
+  radial-gradient(60px 22px at 15% 18%,#fff 60%,transparent 62%),radial-gradient(90px 28px at 22% 20%,#fff 60%,transparent 62%),
+  radial-gradient(80px 26px at 78% 12%,#fff 60%,transparent 62%),radial-gradient(60px 20px at 86% 15%,#fff 60%,transparent 62%),
+  radial-gradient(120px 34px at 60% 88%,#ffffffcc 60%,transparent 62%),radial-gradient(100px 30px at 20% 92%,#ffffffcc 60%,transparent 62%),
+  linear-gradient(170deg,transparent 62%,#9fd3a8 62.4%,#8cc79a 75%,transparent 75.4%),linear-gradient(195deg,transparent 66%,#b6dfbf 66.4%,#a6d6b0 80%,transparent 80.4%)}
+.dim{background:rgba(40,60,90,.45)}
+.card{position:relative;background:var(--paper);border:3px solid var(--gold);border-radius:14px;box-shadow:0 0 0 3px #fff inset,0 6px 0 #c48a2a,0 10px 30px rgba(60,40,10,.25);padding:16px;width:min(420px,100%);max-height:100%;overflow-y:auto}
+.card.wide{width:min(560px,100%)}
+/* sảnh gọn (1.0.74): hai khung chế độ phải thấy được cả hai mà không cần cuộn trên điện thoại */
+#menu .sub{font-size:13.5px;line-height:1.35;margin:2px 0 4px}#menu .mode .row{margin:6px 0 0}#menu .mode .row .btn{font-size:15px;padding:8px 4px;margin:0}#menu .mode .row .btn img{display:none}#towerB small{display:block;font-size:12px}#menu .mode .mlbl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* điện thoại cầm ngang (11/11/2026): thẻ rộng ra, sảnh chia 2 cột, tu sĩ xếp một hàng */
+@media (orientation:landscape) and (max-height:560px){.card{width:min(700px,100%);padding:10px 14px}.card.wide{width:min(820px,100%)}#menu .card{width:min(940px,100%);max-width:none;column-count:3;column-gap:14px}#menu .card>*{break-inside:avoid}#menu h1{font-size:26px;margin:0 0 4px}#menu .sub{display:none}#modeKiep,#modeTran{break-before:column}#menu .mode .btn{margin:4px 0}#menu .mlbl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px}#menu .row{margin:4px 0}#menu .row .btn,#menu #dqB,#menu #setB{font-size:14px;padding:6px 4px;margin:3px 0;white-space:nowrap}#menu .row .btn img{display:none}#menu #dqB img,#menu #setB img{width:18px;height:18px}#menu #towerB,#menu #hdB{font-size:17px}#menu #logoC{height:44px;width:auto}#menu .mode{margin-top:0}#menu .btn{padding-top:8px;padding-bottom:8px}.chars{grid-template-columns:repeat(6,1fr)!important}}
+h1{margin:0;font-size:38px;line-height:1;text-align:center;color:#c8202a;letter-spacing:1px;text-shadow:2px 2px 0 #ffd45a,4px 4px 0 rgba(0,0,0,.12)}
+h2{margin:0 0 8px;font-size:26px;text-align:center;color:#a8401a}
+.sub{text-align:center;color:var(--ink2);margin:4px 0 10px;font-size:15px}
+.btn{display:block;width:100%;margin:8px 0;padding:10px 12px;font-size:20px;font-weight:800;border:3px solid #7a4a10;border-radius:12px;background:linear-gradient(#ffe48a,#f2b83a);box-shadow:0 4px 0 #a8701a;color:#5a2c08}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #a8701a}
+.btn.alt{background:linear-gradient(#e8fff6,#b9f0de);border-color:#1d8f77;box-shadow:0 4px 0 #1d8f77;color:#0f5a48}
+.btn.sm{width:auto;display:inline-block;margin:0;padding:4px 12px;font-size:16px}
+.btn:disabled{filter:grayscale(.8);opacity:.6}
+.row{display:flex;gap:8px}.row .btn{flex:1}
+.lt{color:#16a383;font-weight:800}
+#logoC{display:block;margin:6px auto 0;width:240px;height:56px;image-rendering:pixelated}
+.stat{display:flex;justify-content:space-between;font-size:15px;color:var(--ink2);margin:6px 2px}
+.ver{position:absolute;right:10px;bottom:4px;font:14px var(--px);color:#b89a70}
+/* chọn nhân vật */
+.chars{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.chr{background:#fff3d6;border:2px solid #e8c98a;border-radius:10px;padding:4px 2px;display:flex;flex-direction:column;align-items:center;font-size:14px;font-weight:700}
+.chr canvas{width:56px;height:56px;image-rendering:pixelated}
+.chr.on{background:#fff;border-color:#e0a83a;box-shadow:0 0 0 2px #ffd45a}
+.chr.locked canvas{filter:brightness(0) opacity(.35)}
+.chr small{font-size:11px;color:var(--ink2)}
+.cd{background:#fff;border-radius:10px;border:2px dashed #e8c98a;padding:8px 10px;margin:8px 0;font-size:15px}
+.cd b:first-child{font-size:18px}
+.maps{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.mapb{border:2px solid #e8c98a;border-radius:10px;padding:6px 4px;background:linear-gradient(180deg,#fff 0 40%,var(--g) 40% 78%,var(--w) 78%);display:flex;flex-direction:column;text-align:center;min-height:86px}
+.mapb b{font-size:14px;line-height:1.1}.mapb small{font-size:11px;color:#5a4030;background:#fff9;border-radius:6px;margin-top:auto;line-height:1.15;padding:2px}
+.mapb.on{border-color:#e0a83a;box-shadow:0 0 0 2px #ffd45a}
+.lbl{font-weight:800;margin:10px 0 4px;color:#a8401a}
+/* động phủ */
+.uprow{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 4px;border-bottom:1px dashed #e8c98a}
+.uprow small{display:block;color:var(--ink2);font-size:13px}.pips{color:#e0a83a;font-size:12px;letter-spacing:1px}
+.opt{display:flex;justify-content:space-between;align-items:center;font-size:18px;padding:8px 2px;border-bottom:1px dashed #e8c98a}
+.opt input{width:22px;height:22px;accent-color:#2fbf9f}
+.help{font-size:14px;color:var(--ink2);line-height:1.35}
+/* thẻ lên cấp */
+#lvup .card{background:linear-gradient(#fffdf4,#fff2d0)}
+.card3{display:flex;gap:10px;align-items:center;text-align:left;width:100%;margin:7px 0;padding:8px 10px;border:3px solid #e8c98a;border-radius:12px;background:#fff;box-shadow:0 3px 0 #e0b870;animation:pop .25s ease-out both}
+.card3:nth-child(2){animation-delay:.06s}.card3:nth-child(3){animation-delay:.12s}
+.card3:active{transform:scale(.98);border-color:#e0a83a}
+.card3 img{width:48px;height:48px;image-rendering:pixelated;background:radial-gradient(#fff6d0,#ffe3a0);border-radius:10px;border:2px solid #e0a83a;flex:none}
+.card3 b{font-size:19px;display:block;line-height:1.1}.card3 small{color:var(--ink2);font-size:13px}.card3 p{margin:2px 0 0;font-size:14px;line-height:1.2}
+.slot.evo{border-color:#ffd45a;box-shadow:0 0 6px 2px #ffe48a}.card3.evoc{border-color:#ffd45a;background:linear-gradient(#fffbe0,#fff1b8);box-shadow:0 3px 0 #e0a83a,0 0 12px #ffe48a}.new.evo{background:#e0a83a}
+.new{white-space:nowrap;display:inline-block;font-style:normal;font-size:12px;background:#ff5a7a;color:#fff;border-radius:6px;padding:0 6px;margin-left:6px;vertical-align:middle}
+.sds{display:flex;flex-wrap:wrap;gap:3px;margin-top:3px}.card3 .sd b{display:inline;font-size:12px;line-height:1}.sd{font-size:12px;line-height:1;padding:3px 5px;border-radius:6px;background:#f3ecdc;color:#6a5030}.sd b{color:#3a2a10}.sd.up{background:#e2f8de;color:#2a6a2a}.sd.up b{color:#147a2a}.sd.dn{background:#fde4e0;color:#8a3a2a}
+.eh{font-size:12px;margin-top:3px;color:#8a6a2a}.eh .ok{color:#159a3a;font-weight:700}.eh .no{color:#b0503a}.eh i{font-style:normal;background:#ffd45a;color:#5a3a0a;border-radius:5px;padding:0 4px;font-weight:800}.eh.hot{color:#b0700a;font-weight:700}
+.card3.hint{border-color:#ffc83a;box-shadow:0 3px 0 #e0a83a,0 0 8px #ffe48a}.cpip{color:#e0a83a;font-size:11px;letter-spacing:-1px}.cpip em{font-style:normal;color:#ff7a1f;animation:blink .8s infinite}
+@keyframes blink{50%{opacity:.25}}
+.lut{margin-top:4px;gap:6px}.lut .btn{flex:1;width:auto;padding:6px 8px;font-size:15px}.card3.banable{border-color:#d43a3a;border-style:dashed}.card3.noban{opacity:.45}
+.slot.ready{border-color:#fff;animation:evoReady 1s infinite}@keyframes evoReady{0%,100%{box-shadow:0 0 3px 1px #ffd45a}50%{box-shadow:0 0 10px 4px #ffe680;transform:scale(1.08)}}
+.pevo{font-size:12px;margin:-2px 0 4px 34px;color:#8a6a2a}.pevo .ok{color:#159a3a;font-weight:700}.pevo .no{color:#b0503a}
+.bkrow{display:flex;align-items:center;gap:4px;padding:6px;margin:6px 0;border:2px solid #e8c98a;border-radius:10px;background:#fffaf0;filter:saturate(.55)}.bkrow.seen{filter:none;border-color:#ffd45a;background:linear-gradient(#fffbe0,#fff3c8)}
+.bkf{display:flex;flex-direction:column;align-items:center;width:46px;flex:none}.bkf img{width:32px;height:32px;image-rendering:pixelated;background:radial-gradient(#fff6d0,#ffe3a0);border-radius:8px;border:2px solid #e0a83a}.bkf small{font-size:10px;line-height:1.05;text-align:center}
+.bkrow .pl{color:#c8901a;font-size:16px}.bke{flex:1;min-width:0}.bke b{font-size:15px;display:block;line-height:1.1}.bke small{font-size:11px}.bke p{margin:1px 0;font-size:12px;line-height:1.15}.bke i{font-size:11px;font-style:normal;color:#a08050}.bkrow.seen .bke i{color:#159a3a;font-weight:700}
+.bklore{margin:2px 0 0;font-size:11px;line-height:1.2;font-style:italic;color:#7a5a30}
+.bkyl .bkf img{width:40px;height:40px;object-fit:contain;image-rendering:auto}
+.ylq{display:grid;place-items:center;width:40px;height:40px;border-radius:8px;border:2px solid #e0a83a;background:radial-gradient(#fff6d0,#ffe3a0);color:#c8901a;font-size:20px}
+.bi{width:24px;height:24px;vertical-align:-6px;margin-right:5px;image-rendering:pixelated}.gdet .bi{width:18px;height:18px;vertical-align:-4px;margin-right:2px}
+#ovTitleBox{margin:4px 0 8px}.dh{position:relative;margin:0 auto;padding:8px 10px 7px;border-radius:12px;background:linear-gradient(135deg,#3a1e68,#6a2a8a 50%,#3a1e68);color:#fff;text-align:center;box-shadow:0 0 0 2px #ffd45a inset,0 4px 14px rgba(90,40,140,.35);overflow:hidden;animation:pop .4s ease-out both}
+.dh:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);animation:shine 2.4s 0.4s infinite}
+@keyframes shine{to{left:130%}}.dh small{display:block;font-size:11px;letter-spacing:2px;color:#ffe9a8}.dh b{display:block;font-size:24px;line-height:1.1;background:linear-gradient(#fff,#ffe066 60%,#ffa62a);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(1px 1px 0 #2a0a3a)}
+.dh p{margin:2px 0 0;font-size:12px;color:#f0e0ff}.dh i{position:absolute;right:8px;top:6px;font-style:normal;font-size:10px;background:#ff5a8a;border-radius:6px;padding:1px 5px}
+.dbs{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin-top:6px}.dbs span{font-size:11px;padding:2px 7px;border-radius:8px;background:#fff1c8;border:1.5px solid #e0a83a;color:#7a4a10;font-weight:700}
+.osec{margin:10px 0 4px;font-size:13px;font-weight:800;color:#a0501a;text-align:left;border-bottom:1.5px dashed #e8c98a;padding-bottom:2px}
+.dmr{display:grid;grid-template-columns:26px 1fr auto;gap:2px 7px;align-items:center;margin:5px 0;text-align:left}.dmr img{width:26px;height:26px;image-rendering:pixelated;grid-row:span 2;background:radial-gradient(#fff6d0,#ffe3a0);border-radius:7px;border:1.5px solid #e0a83a}
+.dmr b{font-size:13px;line-height:1}.dmr em{font-style:normal;font-size:11px;color:#8a6a40;text-align:right}.dmr .bar{grid-column:2/4;height:7px;border-radius:4px;background:#f0e4cc;overflow:hidden}.dmr .bar i{display:block;height:100%;border-radius:4px;width:0;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+#ktC{width:100%;height:92px;display:block;margin-top:4px}.ex3{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:6px}.ex3 div{background:#fff8e8;border:1.5px solid #ecd3a0;border-radius:8px;padding:3px 2px}.ex3 small{display:block;font-size:10px;color:#8a6a40}.ex3 b{font-size:14px}
+.skyl{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}.screen.bg>.card{z-index:1}
+.skyl .cl{position:absolute;left:-30%;border-radius:50px;background:#fff;animation:cloud linear infinite;filter:drop-shadow(0 3px 0 #e2f4ff)}
+.skyl .cl:before,.skyl .cl:after{content:"";position:absolute;background:#fff;border-radius:50%}.skyl .cl:before{width:55%;height:150%;left:15%;top:-60%}.skyl .cl:after{width:40%;height:120%;left:48%;top:-40%}
+@keyframes cloud{to{transform:translateX(170vw)}}
+.skyl .pt{position:absolute;top:-5%;width:7px;height:5px;border-radius:70% 0 70% 0;background:#ffc3d8;animation:petal linear infinite,sway ease-in-out infinite alternate}
+@keyframes petal{to{top:105%}}@keyframes sway{from{margin-left:-14px;rotate:-30deg}to{margin-left:14px;rotate:40deg}}
+.screen.enter>.card{animation:cardIn .32s cubic-bezier(.2,.9,.3,1.2) both}@keyframes cardIn{from{opacity:0;transform:translateY(18px) scale(.97)}}
+.btn,.card3,.gi{position:relative;overflow:hidden}.rip{position:absolute;border-radius:50%;background:rgba(255,255,255,.55);transform:scale(0);animation:rip .55s ease-out forwards;pointer-events:none}@keyframes rip{to{transform:scale(1);opacity:0}}
+#logoC{animation:bob 2.6s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-3px)}}
+#menu h1{text-shadow:none;filter:drop-shadow(2px 2px 0 #ffd45a);background:linear-gradient(100deg,#c8301a 0%,#c8301a 40%,#ffb03a 50%,#c8301a 60%,#c8301a 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:tshine 4s linear infinite}@keyframes tshine{from{background-position:100% 0}to{background-position:-150% 0}}
+#chestFx{position:fixed;inset:0;z-index:60;cursor:pointer}#chestFx canvas{position:absolute;inset:0;width:100%;height:100%}#chestFx.out{opacity:0;transition:opacity .25s}
+.cfi{position:absolute;left:0;right:0;top:62%;text-align:center;color:#fff;opacity:0;transform:translateY(14px);transition:all .45s .15s}.cfi.on{opacity:1;transform:none}
+.cfi small{display:inline-block;font-weight:800;font-size:15px;padding:2px 12px;border-radius:10px;background:#0006;border:2px solid var(--gc)}.cfi b{display:block;font-size:28px;margin-top:4px;text-shadow:0 0 12px var(--gc),2px 2px 0 #000}
+.cfi p{margin:4px 0;font-size:15px;color:#f4ecff}.cfi em{display:block;margin-top:14px;font-size:13px;font-style:normal;opacity:.7;animation:blink 1.2s infinite}
+.fxo{flex-wrap:wrap}.fxo small{font-size:12px;color:#8a6a40;margin-left:4px}.seg{display:flex;width:100%;gap:4px;margin-top:5px}.seg button{flex:1;padding:6px 2px;border:2px solid #1d8f77;border-radius:9px;background:#e8fff6;color:#0f5a48;font-weight:800;font-size:14px}.seg button.on{background:linear-gradient(#ffe48a,#f2b83a);border-color:#7a4a10;color:#5a2c08}
+.nhs{display:flex;flex-wrap:wrap;gap:3px;margin-top:3px}.nh{font-size:11px;padding:1px 6px;border-radius:7px;border:1.5px solid var(--c);color:#6a5030;background:#fffaf0}.nh.ok{background:var(--c);color:#fff;font-weight:800;text-shadow:0 1px 0 #0005}
+.dks{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:none}.dks::-webkit-scrollbar{display:none}
+.dkb{flex:0 0 auto;border:2px solid #e8c98a;border-radius:999px;background:#fff8e8;color:#5a4030;font:inherit;font-size:13px;font-weight:700;padding:5px 11px;cursor:pointer}
+.dkb.on{background:#ffd45a;border-color:#e0a83a;color:#3a2410;box-shadow:0 0 0 2px #ffe9a8}
+.dkb.ln{border-color:#c8505a;color:#8a1f2a}.dkb.ln.on{background:#c8303a;border-color:#7a1018;color:#fff;box-shadow:0 0 0 2px #ff9aa0}
+.dkb.locked{opacity:.45;filter:grayscale(.6)}.dkb.locked::before{content:'🔒 '}
+.dkinfo{font-size:12px;line-height:1.35;color:#6a5040;background:#fff9;border-radius:8px;padding:5px 8px;min-height:2.7em}
+.maps .aib{position:relative;text-align:left}.aib i{display:block;font-style:normal;font-size:11px;color:#a0501a}.aib.done i{color:#159a3a}.aib em{position:absolute;right:6px;top:4px;font-style:normal;font-size:10px;color:#e0a83a;letter-spacing:-1px}
+.maps{max-height:230px;overflow-y:auto}
+.bq{display:block;width:100%;margin:6px 0 2px;padding:6px 8px;border:2px dashed #2fbf9f;border-radius:10px;background:#effff9;color:#0f5a48;font:700 14px var(--font)}.bq.full{border-style:solid;background:linear-gradient(#e8fff6,#b9f0de);animation:pulse 1.6s infinite}
+#burstI{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px);image-rendering:pixelated;filter:grayscale(.7) brightness(.8);opacity:.85;transition:filter .3s}#burstB.ready #burstI{filter:none;opacity:1;animation:spin 6s linear infinite}#burstLv{position:absolute;left:0;right:0;bottom:2px;font-style:normal;font-size:8px;color:#ffe48a;text-align:center;letter-spacing:-1px}#burstF{opacity:.55}
+@keyframes spin{to{transform:rotate(360deg)}}
+.dqb{position:relative;font-size:17px}.dqb i{position:absolute;right:10px;top:8px;width:12px;height:12px;border-radius:50%;background:#ff3d6e;box-shadow:0 0 6px #ff3d6e}.dqlogin{display:flex;gap:4px;margin:6px 0}.dqlogin div{flex:1;text-align:center;padding:4px 0;border:2px solid #e8c98a;border-radius:8px;background:#fffaf0;font-size:11px;line-height:1.2}.dqlogin div.got{background:#e5f4e4;border-color:#7bc96a}.dqlogin div.today{border-color:#ffb02e;box-shadow:0 0 6px #ffd45a}.dqlogin b{display:block;font-size:13px}.dqrow{display:flex;align-items:center;gap:8px;padding:8px;margin:6px 0;border:2px solid #e8c98a;border-radius:10px;background:#fffaf0}.dqrow.done{border-color:#7bc96a}.dqrow.claimed{opacity:.55}.dqrow div{flex:1;min-width:0}.dqrow b{font-size:15px;display:block}.dqbar{height:8px;border-radius:4px;background:#efe2c4;margin-top:4px;overflow:hidden}.dqbar i{display:block;height:100%;background:linear-gradient(90deg,#7bd96a,#ffd45a)}.dqrow small{font-size:12px}.dqrow .btn{width:auto;flex:none;font-size:15px;margin:0;padding:6px 10px}
+.kym{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;background:rgba(20,10,30,.72);padding:16px}.kym[hidden]{display:none}.kycard{max-width:420px;width:100%;padding:18px 16px 12px;border:3px solid #b89870;border-radius:12px;background:linear-gradient(#f4ecd8,#e4d6b4);box-shadow:0 8px 30px rgba(0,0,0,.4);color:#3a2a1a;text-align:center}.kycard small{display:block;font-size:12px;color:#8a6a40;font-weight:700}.kycard h3{margin:4px 0 8px;font-size:20px;color:#5a3a1a}.kycard p{font-size:16px;line-height:1.45;text-align:left;margin:0 0 8px}.kycard i{display:block;font-size:12px;color:#7a5a8a;margin-bottom:4px}.kyrow{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}.kyb{font:inherit;font-size:11px;padding:3px 6px;border:2px solid #d8c8a8;border-radius:6px;background:#fff;opacity:.5}.kyb.on{opacity:1;border-color:#b89870;background:#fff8e8;cursor:pointer}
+.kvbox{margin-top:8px;padding:6px;border:2px solid #b48cff;border-radius:10px;background:linear-gradient(#fbf6ff,#efe4ff)}.kvbox>small{display:block;font-size:12px;color:#5a3a8a;font-weight:700}.kvrow{display:flex;gap:5px;margin-top:4px}.kvrow button{flex:1;min-width:0;padding:3px;border:2px solid #d8c8f0;border-radius:8px;background:#fff;opacity:.45}.kvrow button.own{opacity:1}.kvrow button.on{border-color:#ffb02e;background:#fff3c8;box-shadow:0 0 6px #ffd45a}.kvrow .q{display:block;height:30px;line-height:30px;text-align:center;color:#b8a8d8;font-size:18px}.kvrow img{width:30px;height:30px;image-rendering:pixelated;display:block;margin:0 auto}.kvbox p{margin:3px 0 0;font-size:12px;line-height:1.15}.bkkv img{width:40px;height:40px;image-rendering:pixelated}
+.ultbox{display:flex;gap:8px;align-items:center;margin-top:8px;padding:6px;border:2px solid #e0a83a;border-radius:10px;background:linear-gradient(#fffbe0,#fff1c8)}.ultbox img{width:40px;height:40px;image-rendering:pixelated}.ultbox div{flex:1;min-width:0}#cdInfo .ultbox b{font-size:15px;line-height:1.1}.ultbox small{display:block;font-size:11px;line-height:1.15;color:#6a5030}.ultbox small.nx{color:#a0501a}.ultbox .btn.sm{flex:none}
+@keyframes pop{from{transform:scale(.85);opacity:0}to{transform:none;opacity:1}}
+.prow{display:grid;grid-template-columns:28px 1fr auto auto;gap:8px;align-items:center;font-size:15px;padding:3px 0}
+.prow img{width:28px;height:28px;image-rendering:pixelated}
+/* kết quả */
+#ovTitle{color:#6a3a8a}#ovTitle.win{color:#c8202a}
+.ovs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0}
+.ovs div{background:#fff;border-radius:10px;border:2px solid #f0d8a0;padding:4px;text-align:center}.ovs small{display:block;color:var(--ink2);font-size:12px}.ovs b{font-size:18px}
+/* pháp bảo, linh thú, tháp, xếp hạng */
+.gbeq{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.gbinv{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin:8px 0}
+.gi{position:relative;border:2px solid var(--gc,#ccc);border-radius:10px;background:#fff;padding:3px 2px;display:flex;flex-direction:column;align-items:center;font-size:11px;line-height:1.1;min-height:58px;text-align:center}
+.gi canvas{width:30px;height:30px;image-rendering:pixelated}
+.gi.sel{box-shadow:0 0 0 3px #ffd45a}.gi.eqd::after{content:'✓';position:absolute;right:3px;top:1px;color:#16a383;font-weight:800}
+.gi .mg{position:absolute;left:3px;top:1px;color:#e0a83a;font-weight:800}
+.gi.empty{border-style:dashed;color:var(--ink2);justify-content:center}
+.gdet{background:#fff;border:2px solid var(--gc,#e8c98a);border-radius:10px;padding:8px;margin:6px 0;font-size:14px}
+.gdet .row{flex-wrap:wrap}.gdet .btn{font-size:14px;padding:6px 8px;margin:4px 0}
+.ptrow,.twrow,.lbrow{display:flex;align-items:center;gap:8px;padding:6px 4px;border-bottom:1px dashed #e8c98a;font-size:14px}
+.ptrow canvas{width:44px;height:44px;image-rendering:pixelated;flex:none}.ptrow>div,.twrow>div{flex:1}.ptrow small,.twrow small{display:block;color:var(--ink2);font-size:12px}
+.ptrow .btn,.twrow .btn{width:auto;margin:0;padding:4px 10px;font-size:15px}
+.lbrow b{margin-left:auto;color:#a8401a}.lbrow.me{background:#fff3c0;border-radius:8px}
+.cloudbox{display:grid;gap:6px;border-top:1px dashed #e8c98a;padding-top:8px;margin-top:6px;font-size:14px}
+.cloudbox input[type=text]{width:100%;padding:6px 8px;border:2px solid #e8c98a;border-radius:8px;font:16px var(--font)}
+.cloudbox .code{font:15px var(--px);word-break:break-all;background:#fff;border:1px dashed #e0a83a;border-radius:6px;padding:6px;user-select:all}
+.cloudbox .row .btn{font-size:14px;padding:6px;margin:0}
+#btn-small{font-size:12px}
+.btn small{font-size:13px;font-weight:600;opacity:.8}
+/* ── HUD */
+.hud{position:fixed;inset:0;pointer-events:none;z-index:10;font-family:var(--px)}
+#top{position:absolute;left:0;right:0;top:0;padding:max(6px,env(safe-area-inset-top)) 8px 0;display:flex;flex-direction:column;gap:3px}
+#row1{display:flex;align-items:center;gap:6px}
+#realm{font:800 15px var(--font);text-shadow:1px 1px 0 #2a4a5a,-1px -1px 0 #2a4a5a,1px -1px 0 #2a4a5a,-1px 1px 0 #2a4a5a}
+#timer{margin-left:auto;margin-right:auto;font-size:26px;color:#fff;text-shadow:2px 2px 0 #2a4a5a;line-height:1}
+#timer.kiep{color:#ffd0ff;text-shadow:2px 2px 0 #5a1a8a}
+#kills{font-size:18px;color:#fff;text-shadow:1px 1px 0 #2a4a5a}#kills::before{content:'☠ ';}
+#pauseB{pointer-events:auto;width:34px;height:30px;border:2px solid #7a4a10;border-radius:8px;background:#fff3d6;font:800 15px var(--font);color:#7a4a10;padding:0}
+.bar{position:relative;height:12px;background:rgba(30,40,60,.45);border:2px solid #fff;border-radius:7px;overflow:hidden}
+.bar i{position:absolute;left:0;top:0;bottom:0;width:0;transition:width .12s}
+#hpBar i{background:linear-gradient(#ff8a96,var(--hp))}#xpBar{height:9px}#xpBar i{background:linear-gradient(#a6ffe0,var(--xp))}
+#hpT{position:absolute;inset:0;text-align:center;font-size:13px;line-height:9px;color:#fff;text-shadow:1px 1px 0 #000}
+#mini{position:absolute;right:8px;top:calc(max(6px,env(safe-area-inset-top)) + 62px);width:64px;height:64px;border:2px solid #fff;border-radius:8px;image-rendering:pixelated;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+#bossBar{position:absolute;left:12%;right:12%;top:calc(max(6px,env(safe-area-inset-top)) + 62px);text-align:center;color:#fff;font-size:17px;text-shadow:1px 1px 0 #5a1a2a}
+#bossBar .bar{height:10px;border-color:#ffd0d8}#bossBar i{background:linear-gradient(#ff8ab0,#d42a5a)}
+#ann{position:absolute;left:0;right:0;top:30%;text-align:center;font:800 26px var(--font);color:#fff;opacity:0;transform:scale(.8);transition:opacity .25s,transform .25s;text-shadow:2px 2px 0 #2a4a5a,-2px -2px 0 #2a4a5a,2px -2px 0 #2a4a5a,-2px 2px 0 #2a4a5a;padding:0 10px}
+#ann.show{opacity:1;transform:none}#ann.boss,#ann.warn{color:#ffd0d8}#ann.realm{color:#fff6b0;font-size:32px}#ann.kiep{color:#e8c8ff;font-size:30px}#ann.good{color:#c8ffe6;font-size:20px}#ann.title{color:#fff6d0;font-size:30px}
+#bot{position:absolute;left:0;right:0;bottom:0;padding:0 8px max(8px,env(safe-area-inset-bottom));display:flex;align-items:flex-end;gap:6px}
+#slots{display:flex;flex-direction:column;gap:3px}
+#wSlots,#pSlots{display:flex;gap:3px}
+.slot{position:relative;width:30px;height:30px;background:#11263A;border:2px solid #e0a83a;border-radius:7px}
+.slot.sm{width:22px;height:22px;border-width:1.5px;border-color:#2fbf9f;border-radius:6px}
+.slot img{width:100%;height:100%;image-rendering:pixelated}.slot.lock{background:#0B1B2A;border-color:#aaa}.slot.lock img{opacity:.6}
+.slot i{position:absolute;left:1px;top:1px;width:5px;height:5px;border-radius:50%}
+.slot b{position:absolute;right:1px;bottom:-2px;font-size:13px;color:#fff;text-shadow:1px 1px 0 #000}
+#burstB{pointer-events:auto;margin-left:auto;position:relative;width:66px;height:66px;border-radius:50%;border:3px solid #fff;background:#19344B;overflow:hidden;font:800 13px var(--font);color:#fff;text-shadow:1px 1px 0 #000;padding:0}
+#burstF{position:absolute;left:0;right:0;bottom:0;height:0;background:linear-gradient(#ffe48a,#f29a3a);transition:height .2s}
+#burstB span{position:relative}
+#burstB.ready{border-color:#ffd45a;box-shadow:0 0 14px 4px #ffe48a;animation:pulse 1s infinite}
+@keyframes pulse{50%{transform:scale(1.07)}}
+#toast{position:fixed;left:50%;bottom:22%;transform:translateX(-50%);background:var(--paper);border:2px solid var(--gold);border-radius:10px;padding:6px 14px;font-size:16px;opacity:0;transition:opacity .3s;z-index:40;pointer-events:none;text-align:center;width:max-content;max-width:90%}
+#toast.show{opacity:1}
+#loadT{position:fixed;left:0;right:0;bottom:30%;text-align:center;font-size:20px;z-index:50;color:#4a2c14}
+#hdC{position:fixed;left:50%;transform:translateX(-50%);z-index:45;width:min(92vw,440px);background:var(--paper);border:3px solid var(--gold);border-radius:12px;box-shadow:0 0 0 2px #fff inset,0 4px 0 #c48a2a,0 8px 24px rgba(60,40,10,.3);padding:8px 14px 6px;text-align:left;animation:hdIn .3s ease-out;cursor:pointer}#hdC.top{top:62px}#hdC.bot{bottom:10px}#hdC.side{left:8px;top:64px;transform:none;width:min(27vw,230px);animation:none}#hdC b{display:block;color:#c8301a;font-size:16px;line-height:1.2}#hdC p{margin:2px 0 0;font-size:14px;line-height:1.35;color:var(--ink)}#hdC small{display:block;text-align:right;font-size:11px;color:var(--ink2)}@keyframes hdIn{from{opacity:0;transform:translate(-50%,8px)}to{opacity:1;transform:translate(-50%,0)}}.hdr{margin:6px auto 0;display:block;font-size:14px;padding:6px 14px}
+#spdB{pointer-events:auto;height:30px;min-width:38px;border:2px solid #1d8f77;border-radius:8px;background:#dff8ef;font:800 14px var(--font);color:#1d6f5f;padding:0 6px}.spdr{display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:left}.spdr b{display:block;font-size:15px}.spdr small{display:block;font-size:12px;color:var(--ink2);line-height:1.3}.spdr .btn{flex:none;font-size:14px;padding:6px 12px;width:auto}.spdr .spdw{flex:none;color:var(--jade2)}
+.volw{display:flex;align-items:center;gap:10px}.opt input.vol{width:min(36vw,170px);height:22px;accent-color:#2fbf9f;cursor:pointer}.opt input.vol.off{opacity:.35}
+.dplv{font-size:12px;color:var(--ink2);margin-left:4px}.dpbar{display:block;height:5px;border-radius:3px;background:#ecdcb4;margin:3px 0 2px;overflow:hidden;max-width:220px}.dpbar i{display:block;height:100%;background:linear-gradient(90deg,#2fbf9f,#ffd45a)}.uprow .btn.sm small{display:block;font-size:10px;line-height:1.1;opacity:.85}
+
+/* cài đặt gọn (10/2026) */
+#settings .card{padding-top:12px}#settings h2{font-size:24px;margin:0 0 4px}
+#settings .opt{font-size:15px;padding:5px 2px}
+#settings .opt input{width:18px;height:18px}
+#settings .opt input.vol{height:18px;width:min(34vw,150px)}
+#settings .seg{margin-top:3px}#settings .seg button{padding:4px 2px;font-size:13px;border-radius:7px}
+#settings .fxo small{font-size:11px}
+#settings .hdr{padding:6px 10px!important;font-size:13px!important;margin:6px 0!important}
+#settings .cloudbox{font-size:12px;gap:4px;padding-top:6px}
+#settings .cloudbox *{font-size:12px}
+.helpd{margin:6px 0 8px;border-top:1px dashed #e8c98a;padding-top:6px}
+.helpd summary{font-size:14px;font-weight:700;color:var(--ink2);cursor:pointer}
+.helpd .help{font-size:12px;margin:6px 0 0}
+#settings #setBack{padding:8px;font-size:15px}
+</style>
+</head>
+<body>
+<canvas id="game" aria-label="Màn chơi Phàm Nhân Tu Tiên"></canvas>
+<div id="loadT" data-i18n="ui.html.loading">Đang nhập định…</div>
+
+<div id="hud" class="hud" hidden>
+  <div id="top">
+    <div id="row1"><span id="realm">Luyện Khí · tầng 1</span><span id="timer">00:00</span><span id="kills">0</span><button id="pauseB" aria-label="Tạm dừng">II</button></div>
+    <div id="hpBar" class="bar"><i id="hpF"></i><span id="hpT"></span></div>
+    <div id="xpBar" class="bar"><i id="xpF"></i></div>
+  </div>
+  <canvas id="mini" width="75" height="75" aria-label="Bản đồ nhỏ"></canvas>
+  <div id="bossBar" hidden><span id="bossN">Boss</span><div class="bar"><i id="bossF"></i></div></div>
+  <div id="ann"></div>
+  <div id="bot">
+    <div id="slots"><div id="wSlots"></div><div id="pSlots"></div></div>
+    <button id="burstB" aria-label="Đại chiêu"><div id="burstF"></div><span data-i18n="ui.html.burst">Đại<br>chiêu</span></button>
+  </div>
+</div>
+
+<div id="menu" class="screen bg" hidden>
+  <div class="card">
+    <h1 data-i18n="sanh.ten">PHÀM NHÂN<br>TU TIÊN</h1>
+    <canvas id="logoC" width="240" height="56" aria-hidden="true"></canvas>
+    <p class="sub" data-i18n="sanh.phu">Chỉ cần di chuyển. Công pháp tự xuất chiêu.<br>Đột phá cảnh giới, vượt Thiên Kiếp, phi thăng!</p>
+    <div class="stat"><span><span data-i18n="ui.html.linhThach">Linh thạch:</span> <b class="lt" id="mLt">0</b></span><span id="mBest"></span></div>
+    <button id="bqB" class="bq"></button>
+    <div class="mode" id="modeKiep"><div class="mlbl" data-i18n="sanh.kiep">Thiên Kiếp · công pháp tự xuất chiêu</div>
+    <button id="playB" class="btn"><span data-i18n="ui.html.nhapTran">Nhập Trận</span> <small id="mAi"></small></button>
+    <div class="row"><button id="towerB" class="btn alt"><span data-i18n="ui.html.thap">Thông Thiên Tháp</span> <small id="mTower"></small></button><button id="lbB" class="btn alt" data-i18n="ui.html.xepHang">Xếp Hạng</button></div></div>
+    <div class="mode" id="modeTran" hidden><div class="mlbl" data-i18n="sanh.tran">Trấn Ấn Lộ · tự tay đánh, leo tầng</div></div>
+    <!-- dùng chung cho cả hai chế độ -->
+    <div class="row" id="mChung"><button id="gearB" class="btn alt" data-i18n="ui.html.phapBao">Pháp Bảo</button><button id="petB" class="btn alt" data-i18n="ui.html.linhThu">Linh Thú</button></div>
+    <div class="row"><button id="dpB" class="btn alt" data-i18n="ui.html.dongPhu">Động Phủ</button><button id="bkB" class="btn alt" data-i18n="ui.html.biKip">Bí Kíp</button></div>
+    <button id="dqB" class="btn alt dqb"><span data-i18n="nv.nut">Nhiệm Vụ Hằng Ngày</span><i id="dqDot" hidden></i></button>
+    <button id="setB" class="btn alt" data-i18n="ui.html.caiDat">Cài đặt</button>
+    <span class="ver"><span data-i18n="ui.verLbl">bản thử</span> 1.0.87</span>
+  </div>
+</div>
+
+<div id="select" class="screen bg" hidden>
+  <div class="card wide">
+    <h2 data-i18n="ui.html.chonTuSi">Chọn Tu Sĩ</h2>
+    <div id="chars" class="chars"></div>
+    <div class="cd"><b id="cdName"></b><div id="cdInfo"></div></div>
+    <div class="lbl" data-i18n="ui.html.chonAi">Chọn Ải</div>
+    <div id="maps" class="maps"></div>
+    <div class="lbl" data-i18n="dk.chon">Độ khó</div>
+    <div id="dkRow" class="dks"></div>
+    <div id="dkInfo" class="dkinfo"></div>
+    <div class="row" style="margin-top:8px"><button id="selBack" class="btn alt" data-i18n="ui.html.quayLai">Quay lại</button><button id="goB" class="btn" data-i18n="ui.html.nhapTran">Nhập Trận</button></div>
+  </div>
+</div>
+
+<div id="dongphu" class="screen bg" hidden>
+  <div class="card">
+    <h2 data-i18n="ui.html.dongPhu">Động Phủ</h2>
+    <p class="sub"><span data-i18n="ui.html.linhThach">Linh thạch:</span> <b class="lt" id="dpLt">0</b> · <span data-i18n="ui.html.dpSub">nâng cấp vĩnh viễn</span></p>
+    <div id="dpList"></div>
+    <button id="dpBack" class="btn alt" data-i18n="ui.html.quayLai">Quay lại</button>
+  </div>
+</div>
+
+<div id="thap" class="screen bg" hidden>
+  <div class="card">
+    <h2 data-i18n="ui.html.thap">Thông Thiên Tháp</h2>
+    <p class="sub" data-i18n="sanh.thap">Mỗi tầng là trận 2 phút 30 giây với luật riêng, cuối tầng có boss. Qua tầng nhận linh thạch và pháp bảo.</p>
+    <div id="twList"></div>
+    <button id="twBack" class="btn alt" data-i18n="ui.html.quayLai">Quay lại</button>
+  </div>
+</div>
+
+<div id="phapbao" class="screen bg" hidden>
+  <div class="card wide">
+    <h2 data-i18n="ui.html.phapBao">Pháp Bảo</h2>
+    <p class="sub"><span data-i18n="ui.html.linhThach">Linh thạch:</span> <b class="lt" id="gbLt">0</b> · <span data-i18n="ui.html.gbSub">ghép 3 món giống nhau thành phẩm cao hơn</span></p>
+    <div id="gbEq" class="gbeq"></div>
+    <div id="gbSum" class="help"></div>
+    <div id="gbDet"></div>
+    <div class="row gbq"><button id="gbQuick" class="btn sm">Ghép nhanh</button></div>
+    <div id="gbInv" class="gbinv"></div>
+    <div class="row"><button id="gbBack" class="btn alt" data-i18n="ui.html.quayLai">Quay lại</button><button id="gbBuy" class="btn" data-i18n="ui.html.baoHap">Bảo Hạp · 180 ◈</button></div>
+  </div>
+</div>
+
+<div id="linhthu" class="screen bg" hidden>
+  <div class="card">
+    <h2 data-i18n="ui.html.linhThu">Linh Thú</h2>
+    <p class="sub"><span data-i18n="ui.html.linhThach">Linh thạch:</span> <b class="lt" id="ptLt">0</b> · <span data-i18n="ui.html.ptSub">dẫn theo 1 linh thú vào trận</span></p>
+    <div id="ptList"></div>
+    <button id="ptBack" class="btn alt" data-i18n="ui.html.quayLai">Quay lại</button>
+  </div>
+</div>
+
+<div id="bxh" class="screen bg" hidden>
+  <div class="card">
+    <h2 data-i18n="ui.html.bxh">Bảng Xếp Hạng</h2>
+    <p class="sub" data-i18n="ui.html.bxhSub">Điểm cao nhất trong ngày. Điểm = thời gian sống ×10 + yêu quái + cảnh giới ×1000 + boss ×2000 (+20000 nếu độ kiếp).</p>
+    <div id="lbList"></div>
+    <button id="lbBack" class="btn alt" data-i18n="ui.html.quayLai">Quay lại</button>
+  </div>
+</div>
+
+<div id="nhiemvu" class="screen bg" hidden>
+  <div class="card wide">
+    <h2 data-i18n="nv.tieude">Nhiệm Vụ Hằng Ngày</h2>
+    <p class="sub" id="dqSub"></p>
+    <div id="dqLogin" class="dqlogin"></div>
+    <div id="dqList"></div>
+    <button id="dqBack" class="btn alt" data-i18n="ui.html.quayLai">Quay lại</button>
+  </div>
+</div>
+
+<div id="kyM" class="kym" hidden>
+  <div class="kycard">
+    <small id="kyCh"></small>
+    <h3 id="kyT"></h3>
+    <p id="kyB"></p>
+    <i id="kyN"></i>
+    <button id="kyClose" class="btn" data-i18n="ky.dong">Khắc ghi</button>
+  </div>
+</div>
+
+<div id="bikip" class="screen bg" hidden>
+  <div class="card wide">
+    <h2 data-i18n="ui.html.biKipTitle">Bí Kíp Thần Thông</h2>
+    <p class="sub" id="bkSub"></p>
+    <div id="bkList"></div>
+    <button id="bkBack" class="btn alt" data-i18n="ui.html.quayLai">Quay lại</button>
+  </div>
+</div>
+
+<div id="settings" class="screen bg" hidden>
+  <div class="card">
+    <h2 data-i18n="ui.html.caiDat">Cài đặt</h2>
+    <label class="opt"><span data-i18n="ui.html.nhacNen">Nhạc nền</span> <span class="volw"><input type="range" class="vol" id="volMus" min="0" max="100" step="5" aria-label="Âm lượng nhạc nền"><input type="checkbox" id="optMus"></span></label>
+    <label class="opt"><span data-i18n="ui.html.amThanh">Âm thanh</span> <span class="volw"><input type="range" class="vol" id="volSfx" min="0" max="100" step="5" aria-label="Âm lượng hiệu ứng"><input type="checkbox" id="optSfx"></span></label>
+    <label class="opt"><span data-i18n="ui.html.rung">Rung điện thoại</span> <input type="checkbox" id="optVib"></label>
+    <div class="opt fxo"><span data-i18n="ui.html.ngonNgu">Ngôn ngữ · Language</span><div class="seg" id="optLang"></div></div>
+    <div class="opt fxo"><span data-i18n="ui.html.chatLuong">Chất lượng hiệu ứng</span> <small id="fxNow"></small><div class="seg" id="optFx"></div></div>
+    <div id="cloudBox" class="cloudbox"></div>
+    <details class="helpd"><summary data-i18n="ui.html.cachChoi">Cách chơi</summary><p class="help" data-i18n="ui.html.help"><b>Cách chơi:</b> chạm và kéo ở bất kỳ đâu để di chuyển (máy tính: WASD hoặc phím mũi tên). Công pháp tự xuất chiêu. Hạ yêu quái rơi linh khí, đủ linh khí thì lên cấp và chọn 1 trong 3 thẻ. Đủ cấp thì đột phá cảnh giới, mở thêm ô công pháp.<br><b>Ngũ hành:</b> Kim khắc Mộc, Mộc khắc Thổ, Thổ khắc Thủy, Thủy khắc Hỏa, Hỏa khắc Kim. Đánh hành bị khắc +40% sát thương, đánh hành khắc mình −25%.<br><b>Đại chiêu</b> (phím Space): nạp đầy thì tung tuyệt kỹ riêng của tu sĩ.<br>Boss ở phút 5, 10, 15. Hạ Thủy Tinh thì Thiên Kiếp giáng xuống: né vòng sét, diệt Tâm Ma để phi thăng.</p></details>
+    <button id="setBack" class="btn alt" data-i18n="ui.html.quayLai">Quay lại</button>
+  </div>
+</div>
+
+<div id="pause" class="screen dim" hidden>
+  <div class="card">
+    <h2 data-i18n="ui.html.tamDung">Tạm Dừng</h2>
+    <p class="sub" id="pInfo"></p>
+    <div id="pList"></div>
+    <button id="resumeB" class="btn" data-i18n="ui.html.tiepTuc">Tiếp tục</button>
+    <div class="row"><button id="pSetB" class="btn alt" data-i18n="ui.html.caiDat">Cài đặt</button><button id="quitB" class="btn alt" data-i18n="ui.html.boTran">Bỏ trận</button></div>
+  </div>
+</div>
+
+<div id="lvup" class="screen dim" hidden>
+  <div class="card">
+    <h2 id="luTitle">Lên cấp</h2>
+    <p class="sub" id="luSub"></p>
+    <div id="luCards"></div>
+    <div id="luTools" class="row lut"><button id="luRer" class="btn alt">Đổi thẻ</button><button id="luBan" class="btn alt">Phong ấn</button></div>
+  </div>
+</div>
+
+<div id="over" class="screen dim" hidden>
+  <div class="card">
+    <h2 id="ovTitle"></h2>
+    <p class="sub" id="ovSub"></p>
+    <div id="ovTitleBox"></div>
+    <div class="ovs" id="ovStats"></div>
+    <div id="ovMore"></div>
+    <p class="sub lt" id="ovUnlock"></p>
+    <div id="ovGear" class="gbinv"></div>
+    <div class="row"><button id="ovMenu" class="btn alt" data-i18n="ui.html.veSanh">Về sảnh</button><button id="ovAgain" class="btn" data-i18n="ui.html.choiLai">Chơi lại</button></div>
+  </div>
+</div>
+<div id="toast"></div>
+
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/lang/vi.js"></script>
+<script src="js/lang/en.js"></script>
+<script src="js/art.js"></script>
+<script src="js/sfxmap.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/meta.js"></script>
+<script src="js/kiep/ai.js"></script>
+<script src="js/game.js"></script>
+<script src="js/nguhanh.js"></script>
+<script src="js/ult.js"></script>
+<script src="js/render.js"></script>
+<script src="js/vfx.js"></script>
+<script src="js/fxart.js"></script>
+<script src="js/ult2.js"></script>
+<script src="js/ultart.js"></script>
+<script src="js/skillv.js"></script>
+<script src="js/cloud.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/ui2.js"></script>
+<script src="js/ui3.js"></script>
+<script src="js/ui4.js"></script>
+<script src="js/kiep/bicanh.js"></script>
+<script src="js/linhthu2.js"></script>
+<script src="js/canh.js"></script>
+<script src="js/quaimap.js"></script>
+<script src="js/nhiemvu.js"></script>
+<script src="js/kiep/bicanh2.js"></script>
+<script src="js/kiep/bicanh3.js"></script>
+<script src="js/tuluyen.js"></script>
+<script src="js/kiep/bicanh4.js"></script>
+<script src="js/kyucdata.js"></script>
+<script src="js/kyuc.js"></script>
+<script src="js/kiep/huongdan.js"></script>
+<script src="js/amthanh.js"></script>
+<script src="js/kiep/tangtoc.js"></script>
+<script src="js/thoitiet.js"></script>
+<script src="js/kiep/kiepart.js"></script>
+<script src="js/hudbar.js"></script>
+<script src="js/vatpham.js"></script>
+<script src="js/kiep/daophap.js"></script>
+<script src="js/congphap2.js"></script>
+<script src="js/kiep/hopkich.js"></script>
+<script src="js/kiep/renhanh.js"></script>
+<script src="js/hudgon.js"></script>
+<script src="js/dohoa.js"></script>
+<script src="js/yeuluc.js"></script>
+<script src="js/thu_lp8.js"></script>
+<script src="js/luoi_lp.js"></script>
+<script src="js/hoatanh.js"></script>
+<script src="js/amchieu.js"></script>
+<script src="js/chudong.js"></script>
+<script src="js/toiuu.js"></script>
+<script src="js/tranan/mua.js"></script>
+<script src="js/tranan/loi.js"></script>
+<script src="js/tranan/danh.js"></script>
+<script src="js/tranan/ve.js"></script>
+<script src="js/tranan/biendi.js"></script>
+<script src="js/tranan/thulinh.js"></script>
+<script src="js/tranan/ui.js"></script>
+<script src="js/tranan/sanh.js"></script>
+<script src="js/tranan/bxh.js"></script>
+<script src="js/tranan/noi.js"></script>
+<script src="js/tranan/banmenh_data.js"></script>
+<script src="js/tranan/banmenh.js"></script>
+<script src="js/kiep/dokho.js"></script>
+<script src="js/gopy.js"></script>
+<script src="js/daodo_data.js"></script>
+<script src="js/daodo.js"></script>
+<script src="js/sanh.js"></script>
+<script src="js/khung.js"></script>
+<script>
+if('serviceWorker' in navigator&&location.protocol==='https:'){addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{})})}
+</script>
+</body>
+</html>
